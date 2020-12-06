@@ -29,18 +29,14 @@ def build_circuit(lines)
 
     input = input.split
 
-    if input.size == 1
-      input = input[0].to_i if input[0].match(/\d+/)
-    else
-      input.each_with_index do |_, index|
-        input[index] = input[index].to_i if input[index].match?(/\d+/)
-      end
+    input.each_with_index do |_, index|
+      input[index] = input[index].to_i if input[index].match?(/\d+/)
     end
 
     circuit[output] = input
   end
 
-  return circuit
+  circuit
 end
 
 def main
